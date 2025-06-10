@@ -5,7 +5,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil
     ) -> Bool {
-        print("✅ AppDelegate did finish launching")
         // Perform any setup like FirebaseApp.configure() here
         return true
     }

@@ -59,6 +59,7 @@ struct Init: ParsableCommand {
         let enumerator = fileManager.enumerator(atPath: folderPath)
 
         let allowedExtensions = ["swift", "xcodeproj", "pbxproj", "plist", "md", "yaml", "yml", "txt", "sh"]
+        let allowedExactFilenames = [".swiftformat", ".gitignore", ".editorconfig"]
 
         while let file = enumerator?.nextObject() as? String {
             let filePath = "\(folderPath)/\(file)"
@@ -66,9 +67,10 @@ struct Init: ParsableCommand {
 
             if fileManager.fileExists(atPath: filePath, isDirectory: &isDir), !isDir.boolValue {
                 let fileExtension = URL(fileURLWithPath: filePath).pathExtension
+                let filename = URL(fileURLWithPath: filePath).lastPathComponent
 
-                guard allowedExtensions.contains(fileExtension) else {
-                    continue // Skip non-text files
+                guard allowedExtensions.contains(fileExtension) || allowedExactFilenames.contains(filename) else {
+                    continue
                 }
 
                 var content = try String(contentsOfFile: filePath)

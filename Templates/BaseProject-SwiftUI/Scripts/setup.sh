@@ -121,8 +121,15 @@ if [ -d .git ]; then
     echo '✅ Git has been initialized'
 else
     echo '✅ Initializing Git'
-    git init
+    git init 2>&1 | grep -v '^hint:'
+    echo '✅ Using main branch as default branch'
     git branch -M main
+fi
+
+if ! git rev-parse HEAD >/dev/null 2>&1; then
+    echo "💥 No commits found, creating initial commit"
+    git add .
+    git commit -m "Initial commit"
 fi
 
 # Pre-commit

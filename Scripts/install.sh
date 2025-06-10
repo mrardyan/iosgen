@@ -23,5 +23,8 @@ echo "📁 Installing templates to $INSTALL_TEMPLATE"
 sudo mkdir -p "$INSTALL_TEMPLATE"
 sudo cp -R Templates/* "$INSTALL_TEMPLATE"
 
+sudo chown -R $(whoami) "$INSTALL_TEMPLATE"
+sudo chmod -R u+rwX "$INSTALL_TEMPLATE"
+
 echo "✅ Installation complete!"
-echo "👉 You can now run '$CLI_NAME YourProjectName' from anywhere."
+echo "👉 You can now run '$CLI_NAME init YourProjectName' from anywhere."

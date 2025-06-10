@@ -44,20 +44,28 @@ struct Init: ParsableCommand {
     }
 
     func replacePlaceholders(in folderPath: String, projectName: String) throws {
-        let fileManager = FileManager.default
-        let enumerator = fileManager.enumerator(atPath: folderPath)
+    let fileManager = FileManager.default
+    let enumerator = fileManager.enumerator(atPath: folderPath)
 
-        while let file = enumerator?.nextObject() as? String {
-            let filePath = "\(folderPath)/\(file)"
-            var isDir: ObjCBool = false
+    let allowedExtensions = ["swift", "xcodeproj", "pbxproj", "plist", "md", "yaml", "yml", "txt", "sh"]
 
-            if fileManager.fileExists(atPath: filePath, isDirectory: &isDir), !isDir.boolValue {
-                var content = try String(contentsOfFile: filePath)
-                content = content.replacingOccurrences(of: "__PROJECT_NAME__", with: projectName)
-                try content.write(toFile: filePath, atomically: true, encoding: .utf8)
+    while let file = enumerator?.nextObject() as? String {
+        let filePath = "\(folderPath)/\(file)"
+        var isDir: ObjCBool = false
+
+        if fileManager.fileExists(atPath: filePath, isDirectory: &isDir), !isDir.boolValue {
+            let fileExtension = URL(fileURLWithPath: filePath).pathExtension
+
+            guard allowedExtensions.contains(fileExtension) else {
+                continue // Skip non-text files
             }
-        }
 
-        print("🔁 Placeholder replaced with \(projectName)")
+            var content = try String(contentsOfFile: filePath)
+            content = content.replacingOccurrences(of: "__PROJECT_NAME__", with: projectName)
+            try content.write(toFile: filePath, atomically: true, encoding: .utf8)
+        }
     }
+
+    print("🔁 Placeholder replaced with \(projectName)")
+}
 }

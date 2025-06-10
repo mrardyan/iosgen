@@ -18,10 +18,18 @@ import SwiftUI
 
 extension ___VARIABLE_productName___ViewModel {
     struct State {
+        var phase: ViewPhase = .initial
         var title: String = "Hello, World!"
     }
 
     enum Action {
         // Define actions here, such as user interactions or data fetch events
+    }
+
+    enum ViewPhase {
+        case initial
+        case loading
+        case loaded
+        case error(Error)
     }
 }

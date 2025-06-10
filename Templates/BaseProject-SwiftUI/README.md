@@ -17,18 +17,6 @@ sh ./Scripts/setup.sh
 
 This will install all necessary dependencies and configure the environment to start building the project using Tuist.
 
-### Initialize Git (Optional)
-
-If you want to initialize a new Git repository for version control, run the following commands in your project directory:
-
-```bash
-git init
-git add .
-git commit -m "Initial commit"
-```
-
-This will set up a local Git repository and commit your initial project files.
-
 ## Tuist Commands
 To learn more about Tuist and its commands, visit the [Tuist Quick Start Guide](https://docs.tuist.io/guides/quick-start/install-tuist).
 

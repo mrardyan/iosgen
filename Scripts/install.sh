@@ -19,10 +19,14 @@ echo "📥 Installing binary to $INSTALL_BIN"
 sudo cp "$BUILD_PATH" "$INSTALL_BIN"
 sudo chmod +x "$INSTALL_BIN"
 
+echo "🧹 Cleaning old templates at $INSTALL_TEMPLATE"
+sudo rm -rf "$INSTALL_TEMPLATE"
+
 echo "📁 Installing templates to $INSTALL_TEMPLATE"
 sudo mkdir -p "$INSTALL_TEMPLATE"
 sudo cp -R Templates/* "$INSTALL_TEMPLATE"
 
+echo "🔒 Setting permissions"
 sudo chown -R $(whoami) "$INSTALL_TEMPLATE"
 sudo chmod -R u+rwX "$INSTALL_TEMPLATE"
 

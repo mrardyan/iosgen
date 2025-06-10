@@ -1,6 +1,6 @@
 # file options
 --header "© {year} __PROJECT_NAME__. All rights reserved."
---exclude XcodeFileTemplates/*,Tuist,Derived,Scripts
+--exclude .XcodeFileTemplates/*,Tuist,Derived,Scripts
 
 # options
 --swiftversion 5.10

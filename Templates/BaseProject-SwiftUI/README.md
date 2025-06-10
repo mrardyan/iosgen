@@ -37,8 +37,8 @@ tuist edit
 This command opens the Tuist project as an Xcode project, allowing you to easily edit the configuration.
 
 ## Project Structure
-- **__PROJECT_NAME__**: Contains the main source code for the application.
+- **App**: Contains the main source code for the application.
   This is where all the development for the app is done.
 - **Tuist**: Contains configuration files for Tuist. Managed by Tuist.
 - **Scripts**: Contains build scripts for setup and other configurations.
-- **XcodeFileTemplates**: Contains custom Xcode file templates for generating project files.
+- **.XcodeFileTemplates**: Contains custom Xcode file templates for generating project files.

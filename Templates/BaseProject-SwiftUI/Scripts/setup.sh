@@ -144,7 +144,7 @@ mkdir -p ~/Library/Developer/Xcode/Templates/File\ Templates
 SCRIPT_FILE=$(readlink -f "$0")
 SCRIPT_PATH=$(dirname "$SCRIPT_FILE")
 SOURCE_PATH="$SCRIPT_PATH/../"
-TEMPLATES_PATH="${SOURCE_PATH}/XcodeFileTemplates"
+TEMPLATES_PATH="${SOURCE_PATH}/.XcodeFileTemplates"
 
 TARGET_PATH=~/Library/Developer/Xcode/Templates/File\ Templates/__PROJECT_NAME__
 

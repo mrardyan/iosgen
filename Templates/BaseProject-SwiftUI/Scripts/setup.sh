@@ -116,6 +116,15 @@ else
     echo "🎉 Tuist installation is complete!"
 fi
 
+# Init Git
+if [ -d .git ]; then
+    echo '✅ Git has been initialized'
+else
+    echo '✅ Initializing Git'
+    git init
+    git branch -M main
+fi
+
 # Pre-commit
 if which pre-commit > /dev/null; then
     echo '✅ pre-commit has been installed'

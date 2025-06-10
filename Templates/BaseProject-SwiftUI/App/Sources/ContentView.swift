@@ -5,3 +5,7 @@ struct ContentView: View {
         Text("Welcome to __PROJECT_NAME__!")
     }
 }
+
+#Preview {
+    ContentView()
+}

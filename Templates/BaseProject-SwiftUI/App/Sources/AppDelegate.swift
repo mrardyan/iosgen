@@ -1,6 +1,14 @@
 import UIKit
 
-@main
-class AppDelegate: UIResponder, UIApplicationDelegate {
-    // __PROJECT_NAME__ App Delegate
+class AppDelegate: NSObject, UIApplicationDelegate {
+    func application(
+        _ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil
+    ) -> Bool {
+        print("✅ AppDelegate did finish launching")
+        // Perform any setup like FirebaseApp.configure() here
+        return true
+    }
+
+    // Optional: implement more UIApplicationDelegate methods as needed
 }
